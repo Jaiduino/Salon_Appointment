@@ -35,10 +35,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AMaleActivity extends AppCompatActivity implements AddCartInterface {
+public class AMaleActivity extends AppCompatActivity implements ServicesListAdapter.addId {
 
         List<Products> productsList = new ArrayList<>();
-
+        List<String> productIdsOfCart = new ArrayList<>();
          LinearLayout linearLayout;
          ServicesListAdapter adapter;
 
@@ -54,27 +54,9 @@ public class AMaleActivity extends AppCompatActivity implements AddCartInterface
             getSupportActionBar().setTitle("Back");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             adapter = new ServicesListAdapter( this, productsList);
-//            GoToCart = findViewById(R.id.btnGoToCart);
-//            GoToCart.setOnClickListener(new View.OnClickListener()
-//            {
-//                @Override
-//                public void onClick(View v)
-//                {
-//                    Fragment fragment = new CartFragment();
-//                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//                    fragmentTransaction.replace(R.id.btnGoToCart,fragment).commit();
-//                }
-//            });
 
             recyclerView = findViewById(R.id.recyclerView);
-//            serviceList = new ServicesList[]
-//                    {
-//                            new ServicesList("Change Of Styling","600"),
-//                            new ServicesList("Hair Spa","400"),
-//                            new ServicesList("Hair Cutting","500"),
-//                            new ServicesList("Hair Style","700")
-//
-//                    };
+
             getmenshairstyles();
            // ServicesListAdapter serviceAdapter = new ServicesListAdapter(this, productsList);
             recyclerView.setAdapter(adapter);
@@ -131,8 +113,11 @@ public class AMaleActivity extends AppCompatActivity implements AddCartInterface
         fragmentTransaction.replace(R.id.constraint,fragment).commit();
     }
 
+
     @Override
-    public void addProducts(List<Products> pList) {
-        
+    public void addIdListner(Intent intent) {
+        Log.e("added data","addIdListner"+intent.getStringExtra("pid"));
+        productIdsOfCart.add(intent.getStringExtra("pid"));
+        Log.e("added data","cartidslist"+productIdsOfCart);
     }
 }

@@ -24,14 +24,22 @@ import java.util.List;
 public class ServicesListAdapter extends RecyclerView.Adapter<ServicesListAdapter.ViewHolder>
 {
     public Context context;
+
    public List<Products> productsList = new ArrayList<>();
+   public addId addId;
     public AddCartInterface addCartInterface;
 
     public ServicesListAdapter(Context context, List<Products> productsList) {
         this.context = context;
         this.productsList = productsList;
       //  this.addCartInterface = addCartInterface;
+        try{
+this.addId = (com.example.saloon_version_0.adapter.ServicesListAdapter.addId)context;
+        }catch (ClassCastException e){
+            throw new ClassCastException(e.getMessage());
+        }
     }
+
 
     @NonNull
     @Override
@@ -48,6 +56,12 @@ public class ServicesListAdapter extends RecyclerView.Adapter<ServicesListAdapte
        // final ServicesList servicesList = serviceList[position];
         holder.ServiceName.setText(products.getProduct_Name());
         holder.ServicePrice.setText(""+products.getPrice());
+        holder.Add.setOnClickListener((v -> {
+            Intent intent = new Intent();
+            intent.putExtra("pid",productsList.get(position).getProduct_Id());
+           addId.addIdListner(intent);
+        }));
+        Log.e("IDs","gh");
 
     }
 
@@ -71,11 +85,12 @@ public class ServicesListAdapter extends RecyclerView.Adapter<ServicesListAdapte
             Add = itemView.findViewById(R.id.btnAdd);
             this.addCartInterface = addCartInterface;
 
-            Add.setOnClickListener((v -> {
-                Log.e("viewholder","add is presed");
-            }));
+
         }
 
 
+    }
+    public interface addId{
+        public void addIdListner(Intent intent);
     }
 }
