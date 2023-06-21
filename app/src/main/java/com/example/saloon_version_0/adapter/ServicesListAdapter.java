@@ -58,10 +58,18 @@ this.addId = (com.example.saloon_version_0.adapter.ServicesListAdapter.addId)con
         holder.ServicePrice.setText(""+products.getPrice());
         holder.Add.setOnClickListener((v -> {
             Intent intent = new Intent();
-            intent.putExtra("pid",productsList.get(position).getProduct_Id());
+            Products p = new Products();
+            p.setProduct_Id(productsList.get(position).getProduct_Id());
+            p.setProduct_Name(productsList.get(position).getProduct_Name());
+            p.setPrice(productsList.get(position).getPrice());
+            p.setDescription(productsList.get(position).getDescription());
+            p.setGender(productsList.get(position).getGender());
+
+
+            intent.putExtra("pid",p);
            addId.addIdListner(intent);
         }));
-        Log.e("IDs","gh");
+      //  Log.e("IDs","gh");
 
     }
 

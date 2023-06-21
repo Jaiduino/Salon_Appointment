@@ -2,6 +2,7 @@ package com.example.saloon_version_0.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class CartFragment extends Fragment implements AddCartInterface
     Button btn;
     RecyclerView recyclerView;
   //  CartItem[] cartItems;
+  List<Products> productIdsOfCart = new ArrayList<>();
     List <Products> products = new ArrayList<>();
 
     @Override
@@ -46,6 +48,8 @@ public class CartFragment extends Fragment implements AddCartInterface
         });
 
         recyclerView = view.findViewById(R.id.recyclerView);
+        Bundle bundle = new Bundle();
+        Log.e("cart",""+bundle.getSerializable("oj"));
 //        cartItems = new CartItem[]
 //                {
 //                        new CartItem(1,"Change Of Styling","600"),
