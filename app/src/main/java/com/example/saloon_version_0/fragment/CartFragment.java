@@ -49,7 +49,9 @@ public class CartFragment extends Fragment implements AddCartInterface
 
         recyclerView = view.findViewById(R.id.recyclerView);
         Bundle bundle = new Bundle();
-        Log.e("cart",""+bundle.getSerializable("oj"));
+        productIdsOfCart = (List<Products>) bundle.getSerializable("oj");
+        Log.e("cart",""+productIdsOfCart);
+
 //        cartItems = new CartItem[]
 //                {
 //                        new CartItem(1,"Change Of Styling","600"),
