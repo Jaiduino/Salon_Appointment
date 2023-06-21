@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="makeup">MakeUp</string>
+    <string name="mehandi">Mehandi</string>
+    <string name="threading">Threading</string>
+    <string name="waxing">Waxing</string>
+    <string name="bleach">Bleach</string>
+    <string name="facial">Facial</string>
+
+    <string name="body_spa">Body Spa</string>
+    <string name="hair_amp_style"><![CDATA[Hair & Style]]></string>
+    <string name="color_hair">Color Hair</string>
+    <string name="beauty_treatment">Beauty Treatment</string>
+    <string name="detan_bleach">Detan Bleach</string>
+    <string name="body_rituals">Body Rituals</string>
+    <string name="hair_spa">Hair Spa</string>
+    <string name="hair_cutting">Hair Cutting</string>
+    <string name="_400">₹ 400</string>
+    <string name="add">Add</string>
+    <string name="book_appointement">Book Appointement</string>
+    <string name="branch_name">Branch Name</string>
+    <string name="select_date">Select Date</string>
+    <string name="date">Date</string>
+    <string name="time_slot">Time Slot</string>
+    <string name="_351">₹351</string>
+    <string name="confirm_booking">Confirm Booking</string>
+    <string name="cancel">Cancel</string>
+    <string name="appointement">Appointement</string>
+    <string name="remove">remove</string>
+</resources>

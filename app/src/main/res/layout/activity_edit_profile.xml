@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_editprofile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Edit Profile"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:textSize="45sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/linear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_editprofile"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/crd11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/cust" />
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Client Name"
+                        android:textSize="18sp"
+                        android:layout_margin="5dp"
+                        android:padding="10dp"
+                        android:textAlignment="center"
+                        android:textColorHint="#ABABAA"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+
+
+                    <TextView
+                        android:id="@+id/tvEmail_Id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/client_barber_com"
+                        android:textSize="18sp"
+                        android:layout_margin="5dp"
+                        android:padding="10dp"
+                        android:textAlignment="center"
+                        android:textColorHint="#ABABAA"/>
+
+                    <EditText
+                        android:id="@+id/editMobileNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:hint="Enter Mobile No."
+                        android:inputType="phone"
+                        android:textAlignment="center"
+                        android:textColorHint="#ABABAA" />
+
+                    <EditText
+                        android:id="@+id/editBuilding_No"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:hint="Enter Building No."
+                        android:inputType="text"
+                        android:textAlignment="center"
+                        android:textColorHint="#ABABAA" />
+
+                    <EditText
+                        android:id="@+id/editStreet_Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:hint="Enter Street Name"
+                        android:inputType="text"
+                        android:textAlignment="center"
+                        android:textColorHint="#ABABAA" />
+
+                    <EditText
+                        android:id="@+id/editPincode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:hint="Enter Pincode"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textColorHint="#ABABAA" />
+
+                    <EditText
+                        android:id="@+id/editPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:hint="Enter Password"
+                        android:inputType="text"
+                        android:textAlignment="center"
+                        android:textColorHint="#ABABAA" />
+
+                    <EditText
+                        android:id="@+id/editConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:hint="Enter Confirm Password"
+                        android:inputType="text"
+                        android:textAlignment="center"
+                        android:textColorHint="#ABABAA" />
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:onClick="updateProfile"
+                            android:text="Update Profile"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"/>
+
+                        <Button
+                            android:onClick="cancel"
+                            android:text="Cancel"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="25dp"
+                            android:backgroundTint="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logo1"
+        android:label="Barber&apos;s Shop"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Saloon_Version_0"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".activity.UFemaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.FemaleServiceActivity"/>
+        <activity
+            android:name=".activity.TFemaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.FemaleServiceActivity"/>
+        <activity
+            android:name=".activity.SFemaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.FemaleServiceActivity"/>
+        <activity
+            android:name=".activity.RFemaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.FemaleServiceActivity"/>
+        <activity
+            android:name=".activity.QFemaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.FemaleServiceActivity"/>
+        <activity
+            android:name=".activity.PFemaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.FemaleServiceActivity"/>
+        <activity
+            android:name=".activity.OFemaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.FemaleServiceActivity"/>
+        <activity
+            android:name=".activity.NFemaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.FemaleServiceActivity"/>
+        <activity
+            android:name=".activity.MFemaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.FemaleServiceActivity"/>
+        <activity
+            android:name=".activity.LFemaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.FemaleServiceActivity"/>
+        <activity
+            android:name=".activity.IMaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.MaleServiceActivity"/>
+        <activity
+            android:name=".activity.HMaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.MaleServiceActivity"/>
+        <activity
+            android:name=".activity.GMaleActivity"
+            android:exported="false"
+        android:parentActivityName=".activity.MaleServiceActivity"/>
+        <activity
+            android:name=".activity.FMaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.MaleServiceActivity"/>
+        <activity
+            android:name=".activity.EMaleActivity"
+            android:exported="false"
+        android:parentActivityName=".activity.MaleServiceActivity"/>
+        <activity
+            android:name=".activity.DMaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.MaleServiceActivity"/>
+        <activity
+            android:name=".activity.CMaleActivity"
+            android:exported="false"
+        android:parentActivityName=".activity.MaleServiceActivity"/>
+        <activity
+            android:name=".activity.BMaleActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.MaleServiceActivity"/>
+        <activity
+            android:name=".activity.AMaleActivity"
+            android:exported="false"
+        android:parentActivityName=".activity.MaleServiceActivity"/>
+        <activity
+            android:name=".activity.MaleServiceActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.Home_Page_Activity"/>
+        <activity
+            android:name=".activity.FemaleServiceActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.Home_Page_Activity"/>
+        <activity
+            android:name=".activity.FinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.BookAppointementActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.Home_Page_Activity" />
+        <activity
+            android:name=".activity.AppointementHistoryActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.Home_Page_Activity" />
+        <activity
+            android:name=".activity.EditProfileActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.Home_Page_Activity" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:exported="true"
+            android:label="Barber&apos;s Shop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.Home_Page_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
