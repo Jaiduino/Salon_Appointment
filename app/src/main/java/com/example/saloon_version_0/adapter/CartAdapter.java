@@ -1,6 +1,7 @@
 package com.example.saloon_version_0.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,17 +18,19 @@ import com.example.saloon_version_0.pojo.CartItem;
 import com.example.saloon_version_0.pojo.Products;
 import com.example.saloon_version_0.pojo.ServicesList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView .Adapter<CartAdapter.ViewHolder>
 {
     public Context context;
-   public List<Products> productsList ;
+   public List<Products> productsList = new ArrayList<>();
 
     public CartAdapter(Context context, List<Products> productsList)
     {
        this.context = context;
         this.productsList = productsList;
+        Log.e("cartAdapter","productLIst from cart "+productsList);
     }
 
     @NonNull
@@ -55,11 +58,17 @@ public class CartAdapter extends RecyclerView .Adapter<CartAdapter.ViewHolder>
         Products products = productsList.get(position);
         holder.ServiceName.setText(products.getProduct_Name());
         holder.ServicePrice.setText(""+products.getPrice());
+        holder.remove.setOnClickListener(v -> {
+            productsList.remove(position);
+            notifyDataSetChanged();
+        });
+
     }
 
     @Override
     public int getItemCount()
     {
+        if(productsList==null) return 0;
         return productsList.size();
     }
 

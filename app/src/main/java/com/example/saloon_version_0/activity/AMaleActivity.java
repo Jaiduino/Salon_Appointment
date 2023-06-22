@@ -105,7 +105,12 @@ public class AMaleActivity extends AppCompatActivity implements ServicesListAdap
                   }
               });
     }
+    @Override
+    public void addIdListner(Intent intent) {
+        Log.e("added data","addIdListner  "+intent.getSerializableExtra("pid"));
+        productIdsOfCart.add((Products) intent.getSerializableExtra("pid"));
 
+    }
 
     public void goToCart(View view)
     {
@@ -114,7 +119,10 @@ public class AMaleActivity extends AppCompatActivity implements ServicesListAdap
 //        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 //        fragmentTransaction.replace(R.id.constraint,fragment).commit();
         Bundle bundle = new Bundle();
+      //  bundle.putSerializable("oj", (Serializable) productIdsOfCart);
+        Log.e("added data","cartidslist"+productIdsOfCart);
         bundle.putSerializable("oj", (Serializable) productIdsOfCart);
+
        Fragment cartfragment = new CartFragment();
        cartfragment.setArguments(bundle);
        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -122,10 +130,5 @@ public class AMaleActivity extends AppCompatActivity implements ServicesListAdap
     }
 
 
-    @Override
-    public void addIdListner(Intent intent) {
-        Log.e("added data","addIdListner  "+intent.getSerializableExtra("pid"));
-        productIdsOfCart.add((Products) intent.getSerializableExtra("pid"));
-        Log.e("added data","cartidslist"+productIdsOfCart);
-    }
+
 }

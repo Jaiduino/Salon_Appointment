@@ -31,15 +31,17 @@ public class CartFragment extends Fragment implements AddCartInterface
 {
     Button btn;
     RecyclerView recyclerView;
+    CartAdapter cartAdapter;
   //  CartItem[] cartItems;
   List<Products> productIdsOfCart = new ArrayList<>();
-    List <Products> products = new ArrayList<>();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view =  inflater.inflate(R.layout.fragment_cart, container, false);
-
+        Bundle bundle = new Bundle();
+        productIdsOfCart = (List<Products>) getArguments().getSerializable("oj");
         btn = view.findViewById(R.id.btnProccedOut);
         btn.setOnClickListener(v ->
         {
@@ -48,25 +50,18 @@ public class CartFragment extends Fragment implements AddCartInterface
         });
 
         recyclerView = view.findViewById(R.id.recyclerView);
-        Bundle bundle = new Bundle();
-        productIdsOfCart = (List<Products>) bundle.getSerializable("oj");
-        Log.e("cart",""+productIdsOfCart);
 
-//        cartItems = new CartItem[]
-//                {
-//                        new CartItem(1,"Change Of Styling","600"),
-//                        new CartItem(2,"Hair Cutting","700"),
-//                        new CartItem(3,"Body Spa","800"),
-//                        new CartItem(4,"Facial","900")
-//
-//                };
-        CartAdapter cartAdapter = new CartAdapter(getContext(), products);
+        Log.e("cart","from cart fragment "+ productIdsOfCart);
+
+
+         cartAdapter = new CartAdapter(getContext(), productIdsOfCart);
         recyclerView.setAdapter(cartAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-
+        cartAdapter.notifyDataSetChanged();
         return view;
     }
+
 
     @Override
     public void addProducts(List<Products> pList) {
