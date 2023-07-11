@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.example.saloon_version_0.pojo.ServicesList;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,9 +33,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class GMaleActivity extends AppCompatActivity {
+public class GMaleActivity extends AppCompatActivity implements ServicesListAdapter.addId{
 
-
+    List<Products> productIdsOfCart = new ArrayList<>();
     List<Products> productsList = new ArrayList<>();
     ServicesListAdapter serviceAdapter;
     RecyclerView recyclerView;
@@ -94,8 +96,23 @@ public class GMaleActivity extends AppCompatActivity {
     public void goToCart(View view)
     {
         //startActivity(new Intent(AMaleActivity.this,CartFragment.class));
-        Fragment fragment = new CartFragment();
+//        Fragment fragment = new CartFragment();
+//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//        fragmentTransaction.replace(R.id.constraint,fragment).commit();
+        Bundle bundle = new Bundle();
+
+        Log.e("added data","cartidslist"+productIdsOfCart);
+        bundle.putSerializable("oj", (Serializable) productIdsOfCart);
+
+        Fragment cartfragment = new CartFragment();
+        cartfragment.setArguments(bundle);
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.constraint,fragment).commit();
+        fragmentTransaction.replace(R.id.constraint,cartfragment).commit();
+    }
+
+    @Override
+    public void addIdListner(Intent intent) {
+        Log.e("added data from GMale","addIdListner  "+intent.getSerializableExtra("pid"));
+        productIdsOfCart.add((Products) intent.getSerializableExtra("pid"));
     }
 }

@@ -64,7 +64,7 @@ this.addId = (com.example.saloon_version_0.adapter.ServicesListAdapter.addId)con
             p.setPrice(productsList.get(position).getPrice());
             p.setDescription(productsList.get(position).getDescription());
             p.setGender(productsList.get(position).getGender());
-
+Log.e("Service List adapter "," before intent p L=67 "+p);
 
             intent.putExtra("pid",p);
            addId.addIdListner(intent);

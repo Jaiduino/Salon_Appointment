@@ -1,6 +1,7 @@
 package com.example.saloon_version_0.adapter;
 
 import android.content.Context;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.saloon_version_0.R;
+import com.example.saloon_version_0.dbHelper.cartItemsDB;
 import com.example.saloon_version_0.fragment.CartFragment;
 import com.example.saloon_version_0.pojo.CartItem;
 import com.example.saloon_version_0.pojo.Products;
@@ -23,6 +25,7 @@ import java.util.List;
 
 public class CartAdapter extends RecyclerView .Adapter<CartAdapter.ViewHolder>
 {
+
     public Context context;
    public List<Products> productsList = new ArrayList<>();
 
@@ -31,6 +34,10 @@ public class CartAdapter extends RecyclerView .Adapter<CartAdapter.ViewHolder>
        this.context = context;
         this.productsList = productsList;
         Log.e("cartAdapter","productLIst from cart "+productsList);
+    }
+
+    public CartAdapter() {
+
     }
 
     @NonNull
@@ -59,11 +66,18 @@ public class CartAdapter extends RecyclerView .Adapter<CartAdapter.ViewHolder>
         holder.ServiceName.setText(products.getProduct_Name());
         holder.ServicePrice.setText(""+products.getPrice());
         holder.remove.setOnClickListener(v -> {
-            productsList.remove(position);
-            notifyDataSetChanged();
+            Log.e("CartAdapter "," Remove button Is Pressed "+position);
+            Log.e("CartAdapter "," Remove button Is Pressed "+products.getProduct_Id());
+           // productsList.remove(position);
+            cartItemsDB ca = new cartItemsDB(context);
+            ca.deleteitem(products.getProduct_Id());
+           // notifyDataSetChanged();
+
+
         });
 
     }
+
 
     @Override
     public int getItemCount()
@@ -76,6 +90,7 @@ public class CartAdapter extends RecyclerView .Adapter<CartAdapter.ViewHolder>
     {
         TextView SrNo,ServiceName,ServicePrice;
         Button remove;
+
         public ViewHolder(@NonNull View itemView)
         {
             super(itemView);
@@ -83,6 +98,17 @@ public class CartAdapter extends RecyclerView .Adapter<CartAdapter.ViewHolder>
             ServiceName = itemView.findViewById(R.id.tvServiceName);
             ServicePrice = itemView.findViewById(R.id.tvServicePrice);
             remove = itemView.findViewById(R.id.btnRemove);
+            final CartAdapter adapter = new CartAdapter();
+            remove.setOnClickListener(v -> {
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+            });
+
+
         }
     }
 }

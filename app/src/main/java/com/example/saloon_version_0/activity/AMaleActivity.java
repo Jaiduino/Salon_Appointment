@@ -67,7 +67,7 @@ public class AMaleActivity extends AppCompatActivity implements ServicesListAdap
     }
 
     private void getmenshairstyles() {
-        Log.e("productList","mens hair and spa idhar aya");
+        Log.e("AMaleActivity ","mens hair and spa idhar aya");
       new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create())
               .baseUrl(Constant.BASE_URL).build().create(MensServices.class).getservices("A")
               .enqueue(new Callback<JsonObject>() {
@@ -75,7 +75,7 @@ public class AMaleActivity extends AppCompatActivity implements ServicesListAdap
                   public void onResponse(Call<JsonObject> call, Response<JsonObject> response) { JsonArray jsonArray;
                       if (response.isSuccessful() && response.body() != null) {
                            jsonArray = response.body().getAsJsonArray("data");
-                          Log.e("productList",""+response.body());
+                          Log.e("AMaleActivity ","from getmenshairstyle "+response.body());
 
                           if(jsonArray.size()>0){
                               for(int i = 0;i< jsonArray.size();i++){
@@ -94,7 +94,7 @@ public class AMaleActivity extends AppCompatActivity implements ServicesListAdap
                          
                           // Proceed with using the jsonArray
                       } else {
-                          Log.e("productList","null");
+                          Log.e("AMaleActivity ","null");
                           // Handle the case when the response is not successful or the body is null
                       }
                   }
@@ -107,8 +107,9 @@ public class AMaleActivity extends AppCompatActivity implements ServicesListAdap
     }
     @Override
     public void addIdListner(Intent intent) {
-        Log.e("added data","addIdListner  "+intent.getSerializableExtra("pid"));
+        Log.e("AMaleActivity","addIdListner  "+intent.getSerializableExtra("pid"));
         productIdsOfCart.add((Products) intent.getSerializableExtra("pid"));
+        Log.e("AMaleActivity","After addIdListner  "+productIdsOfCart);
 
     }
 
@@ -119,10 +120,11 @@ public class AMaleActivity extends AppCompatActivity implements ServicesListAdap
 //        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 //        fragmentTransaction.replace(R.id.constraint,fragment).commit();
         Bundle bundle = new Bundle();
-      //  bundle.putSerializable("oj", (Serializable) productIdsOfCart);
-        Log.e("added data","cartidslist"+productIdsOfCart);
-        bundle.putSerializable("oj", (Serializable) productIdsOfCart);
 
+        Log.e("AMaleActivity","cartidslistAmale"+productIdsOfCart);
+        bundle.putSerializable("oj", (Serializable) productIdsOfCart);
+//Intent intent = new Intent();
+//intent.putExtra("oj", (CharSequence) productIdsOfCart);
        Fragment cartfragment = new CartFragment();
        cartfragment.setArguments(bundle);
        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
